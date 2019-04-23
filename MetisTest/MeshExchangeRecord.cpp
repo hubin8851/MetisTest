@@ -53,4 +53,9 @@ mesh_t* CGraphDepart::ReadMesh(HBXFEMDef::InputRecord * _param)
 
 
 
+mesh_t * DynamicRecordToMesh(HBXFEMDef::InputRecord * _param)
+{
+	return nullptr;
+}
+
 }

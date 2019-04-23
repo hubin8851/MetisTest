@@ -41,7 +41,7 @@ namespace HBXFEMDef
 	};
 
 
-	//公共函数，从一个
+	//公共函数，从一个动态记录转换成mesh结构体
 	mesh_t* DynamicRecordToMesh(HBXFEMDef::InputRecord* _param);
 }
 
