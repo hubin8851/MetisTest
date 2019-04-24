@@ -32,12 +32,31 @@ namespace HBXFEMDef
 	class CGraphDepart
 	{
 	public:
-		CGraphDepart();
+		CGraphDepart( char* SourceFile, int _nPart = 5 );
 		~CGraphDepart();
 
+		//初始化传入参数结构体
+		void Initial( params_t *params );
+
 		mesh_t* ReadMesh(HBXFEMDef::InputRecord* _param);
+		//直接copy metis的mpmetis的函数
+		mesh_t* ReadMesh(params_t *params);
+
+		//主函数
+		InputFileResult_t SetInputData();
+
+		//输出划分文件
+		InputFileResult_t MeshPartition();
+
 	private:
+		idx_t options[METIS_NOPTIONS];
+		params_t* _MyParams;//划分参数结构体
 		mesh_t* _MyMesh;//mesh类指针
+		idx_t objval;
+		idx_t* epart;//单元划分向量
+		idx_t* npart;//节点划分向量
+
+		int status; //部分函数返回状态值
 	};
 
 
